@@ -1,0 +1,4 @@
+ISBN001,Lap Trinh C++,Nguyen Van A,2020,NXB Kim Dong,CNTT,5
+ISBN002,Nhap Mon AI,Tran Thi B,2021,NXB Tre,CNTT,3
+ISBN003,Toan Cao Cap,Pham Van C,2019,NXB Giao Duc,Toan,7
+ISBN004,Lich Su Viet Nam,Le Thi D,2018,NXB Su That,Lich Su,2
