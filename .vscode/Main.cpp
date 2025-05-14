@@ -19,7 +19,13 @@ int main() {
         cout << "8. Tra sach" << endl;
         cout << "9. Danh sach tien phat" << endl;
         cout << "10. Liet ke sach theo the loai" << endl;
+         cout << "11. Them doc gia (nhap tay)" << endl;
+        cout << "12. Them sach (nhap tay)" << endl;
+        cout << "13. Xuat danh sach doc gia ra file" << endl;
+        cout << "14. Xuat danh sach sach ra file" << endl;
         cout << "0. Thoat" << endl;
+         cout << "15. Sua thong tin doc gia" << endl;
+        cout << "16. Sua thong tin sach" << endl;
         cout << "Nhap lua chon: ";
         cin >> choice;
 
@@ -50,6 +56,32 @@ int main() {
             case 10: 
                 ql.lietKeTheoTheLoai(); 
                 break;
+            case 11: 
+                ql.nhapDocGiaTuBanPhim();
+                break;
+            case 12:
+                ql.nhapSachTuBanPhim();
+                break;
+            case 13:
+                ql.xuatDocGiaRaFile("output_docgia.txt");
+                break;
+            case 14:
+                ql.xuatSachRaFile("output_sach.txt");
+                break;
+             case 15: {
+                string ma;
+                cout << "Nhap ma doc gia can sua: ";
+                cin >> ma;
+                ql.suaThongTinDocGia(ma);
+                break;
+            }
+            case 16: {
+                string isbn;
+                cout << "Nhap ISBN sach can sua: ";
+                cin >> isbn;
+                ql.suaThongTinSach(isbn);
+                break;
+            }
             case 0: cout << "Thoat chuong trinh!" << endl; break;
             default: cout << "Lua chon khong hop le. Vui long thu lai!" << endl;
         }

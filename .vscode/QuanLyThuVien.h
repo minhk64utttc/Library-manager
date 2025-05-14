@@ -43,6 +43,16 @@ public:
     void hienThiPhieuMuon() const;
     void tienPhat();
     int tinhSoNgayTreHan(const string &ngayPhaiTra, const string &ngayTraThucTe);
+    void themDocGia(Reader* docGiaMoi);
+    void xoaDocGia(string maDocGia);
+    void themSach(Book* sachMoi);
+    void xoaSach(string ISBN);
+    void nhapDocGiaTuBanPhim();
+    void nhapSachTuBanPhim();
+    void xuatDocGiaRaFile(const string& tenFile);
+    void xuatSachRaFile(const string& tenFile);
+    void suaThongTinDocGia(string maDocGia);
+    void suaThongTinSach(string ISBN);
 };
 
 #endif

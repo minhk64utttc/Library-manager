@@ -17,6 +17,10 @@ public:
     void hienThi() const;
     string getMaDocGia() const;
     string getTen() const;
+    string getSoDT() const { return soDT; }
+    void setTen(const string& t) { ten = t; }
+    void setSoDT(const string& sdt) { soDT = sdt; }
+      void suaThongTin(string tenMoi, string sdtMoi); 
 };
 
 #endif

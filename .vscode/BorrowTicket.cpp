@@ -29,8 +29,13 @@ void BorrowTicket::hienThi() const {
     cout << "\nThoi gian: " << ngayMuon << " -> " << ngayTra << "\n\n";
 }
 
-string BorrowTicket::getMaPhieu() const { return maPhieu; }
-bool BorrowTicket::getTrangThai() const { return trangThai; }
-vector<Reader*> BorrowTicket::getDocGia() const { return docGia; }
-vector<Book*> BorrowTicket::getSachMuon() const { return sachMuon; }
-string BorrowTicket::getNgayTra() const { return ngayTra; }
+string BorrowTicket::getMaPhieu() const {
+     return maPhieu; }
+bool BorrowTicket::getTrangThai() const { 
+    return trangThai; }
+vector<Reader*> BorrowTicket::getDocGia() const { 
+    return docGia; }
+vector<Book*> BorrowTicket::getSachMuon() const { 
+    return sachMuon; }
+string BorrowTicket::getNgayTra() const { 
+    return ngayTra; }

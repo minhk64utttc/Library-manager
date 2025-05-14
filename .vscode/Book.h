@@ -28,6 +28,13 @@ public:
     void giamSoLuong();
     void tangSoLuong();
     void tangSoLanMuon();
+    void setTenSach(const string& ten) { tenSach = ten; }
+    void setTacGia(const string& tg) { tacGia = tg; }
+    void setNamXB(int nam) { namXB = nam; }
+    void setNhaXB(const string& nxb) { nhaXB = nxb; }
+    void setTheLoai(const string& tl) { theLoai = tl; }
+    void setSoLuong(int sl) { soLuong = sl; }
+      void suaThongTin(string tenMoi, string tacGiaMoi, int namMoi, string nhaXBMoi, string theLoaiMoi, int soLuongMoi);
 };
 
 #endif

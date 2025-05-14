@@ -1,0 +1,4 @@
+ISBN001,Lap Trinh C++,Tac Gia X,2023,NXB Tre,CNTT,1
+ISBN002,Nhap Mon AI,Tac Gia X,2023,NXB Tre,CNTT,1
+ISBN003,Toan Cao Cap,Tac Gia X,2023,NXB Tre,Toan,7
+ISBN004,Lich Su Viet Nam,Tac Gia X,2023,NXB Tre,Lich Su,0

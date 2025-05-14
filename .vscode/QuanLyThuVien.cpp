@@ -1,6 +1,5 @@
 #include "QuanLyThuVien.h"
 #include <algorithm>
-
 vector<string> QuanLyThuVien::split(const string& s, char delimiter) {
     vector<string> tokens;
     string token;
@@ -28,7 +27,6 @@ Book* QuanLyThuVien::timSach(string isbn) {
 void QuanLyThuVien::capNhatDanhSach() {
     sachChuaMuon.clear();
     sachDaMuon.clear();
-    
     for (auto& s : allSach) {
         bool dangMuon = false;
         for (auto& phieu : tatCaPhieu) {
@@ -275,4 +273,187 @@ void QuanLyThuVien::hienThiDocGia() const {
 void QuanLyThuVien::hienThiPhieuMuon() const {
     cout << "===== DANH SACH PHIEU MUON =====" << endl;
     for (auto& phieu : tatCaPhieu) phieu->hienThi();
+}
+void QuanLyThuVien::themDocGia(Reader* docGiaMoi) {
+    docGia.push_back(docGiaMoi);
+    cout << "Da them doc gia " << docGiaMoi->getMaDocGia() << endl;
+}
+
+// === XÓA ĐỘC GIẢ ===
+void QuanLyThuVien::xoaDocGia(string maDocGia) {
+    for (auto it = docGia.begin(); it != docGia.end(); ++it) {
+        if ((*it)->getMaDocGia() == maDocGia) {
+            delete *it;
+            docGia.erase(it);
+            cout << "Da xoa doc gia " << maDocGia << endl;
+            return;
+        }
+    }
+    cout << "Khong tim thay doc gia " << maDocGia << endl;
+}
+
+// === THÊM SÁCH ===
+void QuanLyThuVien::themSach(Book* sachMoi) {
+    allSach.push_back(sachMoi);
+    cout << "Da them sach " << sachMoi->getISBN() << endl;
+}
+
+// === XÓA SÁCH ===
+void QuanLyThuVien::xoaSach(string ISBN) {
+    for (auto it = allSach.begin(); it != allSach.end(); ++it) {
+        if ((*it)->getISBN() == ISBN) {
+            delete *it;
+            allSach.erase(it);
+            cout << "Da xoa sach " << ISBN << endl;
+            return;
+        }
+    }
+    cout << "Khong tim thay sach " << ISBN << endl;
+}
+// === NHẬP ĐỘC GIẢ TỪ BÀN PHÍM ===
+void QuanLyThuVien::nhapDocGiaTuBanPhim() {
+    string ma, ten, sdt;
+    
+    cout << "\n=== NHAP THONG TIN DOC GIA ===" << endl;
+    cout << "Nhap ma doc gia: ";
+    cin.ignore();
+    getline(cin, ma);
+    
+    cout << "Nhap ten doc gia: ";
+    getline(cin, ten);
+    
+    cout << "Nhap so dien thoai: ";
+    getline(cin, sdt);
+    
+    Reader* newReader = new Reader(ma, ten, sdt);
+    docGia.push_back(newReader);
+    cout << "Da them doc gia thanh cong!\n";
+}
+
+// === NHẬP SÁCH TỪ BÀN PHÍM ===
+void QuanLyThuVien::nhapSachTuBanPhim() {
+    string isbn, ten, tacGia, nxb, theLoai;
+    int nam, soLuong;
+    
+    cout << "\n=== NHAP THONG TIN SACH ===" << endl;
+    cout << "Nhap ISBN: ";
+    cin.ignore();
+    getline(cin, isbn);
+    
+    cout << "Nhap ten sach: ";
+    getline(cin, ten);
+    
+    cout << "Nhap tac gia: ";
+    getline(cin, tacGia);
+    
+    cout << "Nhap nam xuat ban: ";
+    cin >> nam;
+    
+    cout << "Nhap nha xuat ban: ";
+    cin.ignore();
+    getline(cin, nxb);
+    
+    cout << "Nhap the loai: ";
+    getline(cin, theLoai);
+    
+    cout << "Nhap so luong: ";
+    cin >> soLuong;
+    
+    Book* newBook = new Book(isbn, ten, tacGia, nam, nxb, theLoai, soLuong);
+    allSach.push_back(newBook);
+    cout << "Da them sach thanh cong!\n";
+}
+
+// === XUẤT DANH SÁCH ĐỘC GIẢ RA FILE ===
+void QuanLyThuVien::xuatDocGiaRaFile(const string& tenFile) {
+    ofstream outFile(tenFile);
+    if (!outFile.is_open()) {
+        cerr << "Khong the mo file " << tenFile << endl;
+        return;
+    }
+    
+    for (auto& dg : docGia) {
+        outFile << dg->getMaDocGia() << ","
+                << dg->getTen() << ","
+                << "0123456789" << endl; // Giả định số điện thoại
+    }
+    
+    outFile.close();
+    cout << "Da xuat danh sach doc gia ra file " << tenFile << endl;
+}
+
+// === XUẤT DANH SÁCH SÁCH RA FILE ===
+void QuanLyThuVien::xuatSachRaFile(const string& tenFile) {
+    ofstream outFile(tenFile);
+    if (!outFile.is_open()) {
+        cerr << "Khong the mo file " << tenFile << endl;
+        return;
+    }
+    
+    for (auto& s : allSach) {
+        outFile << s->getISBN() << ","
+                << s->getTenSach() << ","
+                << "Tac Gia X" << "," // Giả định tác giả
+                << "2023" << ","      // Giả định năm XB
+                << "NXB Tre" << ","    // Giả định nhà XB
+                << s->gettheLoai() << ","
+                << s->getSoLuong() << endl;
+    }
+    
+    outFile.close();
+    cout << "Da xuat danh sach sach ra file " << tenFile << endl;
+}
+// === SỬA THÔNG TIN ĐỘC GIẢ ===
+void QuanLyThuVien::suaThongTinDocGia(string maDocGia) {
+    for (auto& dg : docGia) {
+        if (dg->getMaDocGia() == maDocGia) {
+            string tenMoi, sdtMoi;
+            
+            cout << "\n=== SUA THONG TIN DOC GIA ===" << endl;
+            cout << "Nhap ten moi: ";
+            cin.ignore();
+            getline(cin, tenMoi);
+            
+            cout << "Nhap so dien thoai moi: ";
+            getline(cin, sdtMoi);
+            
+            dg->suaThongTin(tenMoi, sdtMoi);
+            return;
+        }
+    }
+    cout << "Khong tim thay doc gia co ma " << maDocGia << endl;
+}
+// === SỬA THÔNG TIN SÁCH ===
+void QuanLyThuVien::suaThongTinSach(string ISBN) {
+    for (auto& s : allSach) {
+        if (s->getISBN() == ISBN) {
+            string tenMoi, tacGiaMoi, nhaXBMoi, theLoaiMoi;
+            int namMoi, soLuongMoi;
+            
+            cout << "\n=== SUA THONG TIN SACH ===" << endl;
+            cout << "Nhap ten sach moi: ";
+            cin.ignore();
+            getline(cin, tenMoi);
+            
+            cout << "Nhap tac gia moi: ";
+            getline(cin, tacGiaMoi);
+            
+            cout << "Nhap nam xuat ban moi: ";
+            cin >> namMoi;
+            
+            cout << "Nhap nha xuat ban moi: ";
+            cin.ignore();
+            getline(cin, nhaXBMoi);
+            
+            cout << "Nhap the loai moi: ";
+            getline(cin, theLoaiMoi);
+            
+            cout << "Nhap so luong moi: ";
+            cin >> soLuongMoi;
+            
+            s->suaThongTin(tenMoi, tacGiaMoi, namMoi, nhaXBMoi, theLoaiMoi, soLuongMoi);
+            return;
+        }
+    }
+    cout << "Khong tim thay sach co ISBN " << ISBN << endl;
 }

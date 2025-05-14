@@ -1,4 +1,14 @@
-ISBN001,Lap Trinh C++,Nguyen Van A,2020,NXB Kim Dong,CNTT,5
-ISBN002,Nhap Mon AI,Tran Thi B,2021,NXB Tre,CNTT,3
-ISBN003,Toan Cao Cap,Pham Van C,2019,NXB Giao Duc,Toan,7
-ISBN004,Lich Su Viet Nam,Le Thi D,2018,NXB Su That,Lich Su,2
+ISBN001,Lap Trinh C++,Nguyen Van An,2020,NXB Kim Dong,CNTT,5
+ISBN002,Nhap Mon AI,Tran Thi Binh,2021,NXB Tre,CNTT,3
+ISBN003,Toan Cao Cap,Pham Van Cuong,2019,NXB Giao Duc,Toan,7
+ISBN004,Lich Su Viet Nam,Le Thi Dung,2018,NXB Su That,Lich Su,2
+ISBN005,Triết Học Phương Đông,Trần Văn Nghia,2017,NXB Văn Hóa,Triết Học,4
+ISBN006,Văn Học Việt Nam,Phạm Thị Lan,2022,NXB Hội Nhà Văn,Văn Học,6
+ISBN007,Hóa Học Đại Cương,Lê Văn Luyen,2023,NXB Khoa Học,Khoa Học,5
+ISBN008,Kỹ Năng Lập Trình,Nguyễn Hồng Son,2021,NXB Trẻ,CNTT,9
+ISBN009,Lịch Sử Thế Giới,Hoàng Văn Nam,2020,NXB Chính Trị,Lịch Sử,3
+ISBN010,Tâm Lý Học Ứng Dụng,Trần Thị Binh,2019,NXB Tổng Hợp,Tâm Lý,7
+ISBN011,Toán Rời Rạc,Phan Văn Loi,2022,NXB Giáo Dục,Toán,8
+ISBN012,Kinh Doanh Quốc Tế,Vũ Thị Minh,2023,NXB Kinh Tế,Kinh Doanh,2
+ISBN013,Vật Lý Hiện Đại,Ngô Văn Diep,2021,NXB Khoa Học,Khoa Học,4
+ISBN014,Nghệ Thuật Lãnh Đạo,Đặng Thị Oanh,2020,NXB Trẻ,Kỹ Năng,5
